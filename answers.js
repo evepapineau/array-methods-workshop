@@ -93,10 +93,10 @@ var myArray = [1, -10, 20, 40, 5];
 function highLow (myArray) {
     var biggest = myArray.reduce(function(obj, num) {
         if (num > obj.highest) {
-            num = obj.highest; 
+            obj.highest = num; 
         }
         else if (num < obj.lowest) {
-            num = obj.lowest;
+            obj.lowest = num;
         }
         return obj;
     }, {highest: -Infinity, lowest: Infinity});
@@ -104,3 +104,32 @@ function highLow (myArray) {
 };
 
 console.log(highLow(myArray));
+
+//Expanding on exercise 6, write a function called highLowTwo that takes an 
+//array of numbers, and returns the higest, second highest, lowest, and second lowest numbers.
+
+var arr = [1, -10, 20, 40, 5];
+
+function highLowTwo (arr) {
+    var first = arr.reduce(function(obj, num) {
+        if (num > obj.highest1) {
+            obj.highest1 = num;
+        }
+        else if (num < obj.lowest1) {
+            obj.lowest1 = num;
+        }
+        return obj;
+        var second = arr.reduce(function(obj, num) {
+            if (num > obj.highest1) {
+                obj.highest2 = num;
+            }
+            else if (num < obj.lowest1) {
+                obj.lowest2 = num;
+            }
+            return obj;
+        }, {highest2: -Infinity, lowest2: Infinity});
+    }, {highest1: -Infinity, lowest1: Infinity});
+    return first;
+};
+
+console.log(highLowTwo(arr));
