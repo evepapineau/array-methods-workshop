@@ -83,3 +83,21 @@ function longuestWord (string) {
 };
 
 longuestWord(longString);
+
+//Write a function called countVowels that takes a string and returns the number 
+//of vowels in the string. You should use Array.prototype.reduce to do your work.
+//For the string "The quick brown fox", the output should be 5 because 
+//there is one e, one u, one i and two os.
+var stringVowels = "The quick brown fox";
+
+function countVowels (string) {
+    stringVowels = string.split("");
+    
+    var vowels = stringVowels.reduce(function(a,e,i,o,u,y) {
+        if (stringVowels === a || e || i || o || u || y) {
+            console.log(stringVowels.indexOf);
+        }
+    });
+}
+
+countVowels(stringVowels);
