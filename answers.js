@@ -139,8 +139,6 @@ function highLowTwo (arr) {
 //where the keys are letters, and the value is the number of times that letter appears.
 
 var hello = "hello world";
-var empty = {};
-
 
 function split (hello) {
     hello.replace(/\W/g, '').toLowerCase();
