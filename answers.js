@@ -140,10 +140,14 @@ function highLowTwo (arr) {
 
 var hello = "hello world";
 
+function hello2 (str) {
+  hello = str.replace(/\W/g, '').toLowerCase();
+  return hello.split('');
+}
+var whtaToBeSplit = hello2(hello);
+
 function split (hello) {
-    hello.replace(/\W/g, '').toLowerCase();
-    var stringSplit = hello.split('');
-    return stringSplit.reduce(function(obj, letter) {
+    return whatToBeSplit.reduce(function(obj, letter) {
         if (obj[letter]) {
             obj[letter] += 1;
         }
