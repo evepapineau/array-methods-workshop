@@ -93,10 +93,10 @@ var myArray = [1, -10, 20, 40, 5];
 function highLow (myArray) {
     var biggest = myArray.reduce(function(obj, num) {
         if (num > obj.highest) {
-            return obj.highest; 
+            num = obj.highest; 
         }
         else if (num < obj.lowest) {
-            return obj.lowest;
+            num = obj.lowest;
         }
         return obj;
     }, {highest: -Infinity, lowest: Infinity});
@@ -104,4 +104,3 @@ function highLow (myArray) {
 };
 
 console.log(highLow(myArray));
-
