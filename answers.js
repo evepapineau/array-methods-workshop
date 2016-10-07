@@ -46,7 +46,7 @@ function filterArray (array) {
 };
 
 var newPositiveArray = positiveArray.filter(filterArray);
-console.log(newPositiveArray);
+//console.log(newPositiveArray);
 
 //Write a function called longestWord that takes a string as argument, 
 //and returns the longest word in the string. 
@@ -60,7 +60,7 @@ function longuestWord (string) {
 };
 
 var longuestWord2 = longString.reduce(longuestWord);
-console.log(longuestWord2);
+//console.log(longuestWord2);
 
 //Write a function called countVowels that takes a string and returns the number 
 //of vowels in the string. You should use Array.prototype.reduce to do your work.
@@ -80,7 +80,7 @@ function countVowels (string) {
     return vowels;
 }
 
-console.log(countVowels("The quick brown fox"));
+//console.log(countVowels("The quick brown fox"));
 
 //Write a function called highLow that takes an array of numbers, and returns an
 //object with a property highest containing the highest number, and a property 
@@ -103,33 +103,57 @@ function highLow (myArray) {
     return biggest;
 };
 
-console.log(highLow(myArray));
+//console.log(highLow(myArray));
 
 //Expanding on exercise 6, write a function called highLowTwo that takes an 
-//array of numbers, and returns the higest, second highest, lowest, and second lowest numbers.
+//array of numbers, and returns the highest, second highest, lowest, and second lowest numbers.
 
 var arr = [1, -10, 20, 40, 5];
 
 function highLowTwo (arr) {
     var first = arr.reduce(function(obj, num) {
-        if (num > obj.highest1) {
-            obj.highest1 = num;
+        if (num > obj.highest) {
+            obj.previousHighest = obj.highest;
+            obj.highest = num;
         }
-        else if (num < obj.lowest1) {
-            obj.lowest1 = num;
+        else if (num )
+        if (num < obj.lowest) {
+            obj.previousLowest = obj.lowest;
+            obj.lowest = num;
+        }
+        if(num < obj.previousHighest && num > obj.previousLowest) {
+          ;
+            
+        }
+        if(num < obj.previousLowest) {
+            
         }
         return obj;
-        var second = arr.reduce(function(obj, num) {
-            if (num > obj.highest1) {
-                obj.highest2 = num;
-            }
-            else if (num < obj.lowest1) {
-                obj.lowest2 = num;
-            }
-            return obj;
-        }, {highest2: -Infinity, lowest2: Infinity});
-    }, {highest1: -Infinity, lowest1: Infinity});
+    }, {highest: -Infinity, previousHighest: -Infinity, lowest: Infinity, previousLowest: Infinity});
     return first;
 };
 
-console.log(highLowTwo(arr));
+//console.log(highLowTwo(arr));
+
+//Write a function called countChars that takes a string, and returns an object 
+//where the keys are letters, and the value is the number of times that letter appears.
+
+var hello = "hello world";
+var empty = {};
+
+
+function split (hello) {
+    hello.replace(/\W/g, '').toLowerCase();
+    var stringSplit = hello.split('');
+    return stringSplit.reduce(function(obj, letter) {
+        if (obj[letter]) {
+            obj[letter] += 1;
+        }
+        else {
+            obj[letter] = 1;
+        }
+        return obj; 
+    }, {});
+}
+
+console.log(split(hello));
