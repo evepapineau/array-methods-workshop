@@ -62,42 +62,46 @@ function longuestWord (string) {
 var longuestWord2 = longString.reduce(longuestWord);
 console.log(longuestWord2);
 
-//Write a function called longestWord that takes a string as argument, and 
-//returns the longest word in the string. You should use Array.prototype.reduce 
-//to do your work.
-
-var longString = "My name is Eve Papineau";
-
-function longuestWord (string) {
-    longString = string.split(" ");
-
-    var longuestWord2 = longString.reduce(function(word1, word2) {
-        if (word1.length > word2.length) {
-            return word1;
-        }
-        else {
-            return word2;
-        }
-    });
-    return longuestWord2;
-};
-
-longuestWord(longString);
-
 //Write a function called countVowels that takes a string and returns the number 
 //of vowels in the string. You should use Array.prototype.reduce to do your work.
 //For the string "The quick brown fox", the output should be 5 because 
 //there is one e, one u, one i and two os.
-var stringVowels = "The quick brown fox";
+
+var vowels1 = ['a','e','i','o','u','y'];
 
 function countVowels (string) {
-    stringVowels = string.split("");
-    
-    var vowels = stringVowels.reduce(function(a,e,i,o,u,y) {
-        if (stringVowels === a || e || i || o || u || y) {
-            console.log(stringVowels.indexOf);
+    var string1 = string.split("");
+    var vowels = string1.reduce(function(counter, letter) {
+        if (vowels1.indexOf(letter) > -1) {
+            counter = counter + 1;
         }
-    });
+        return counter;
+    }, 0);
+    return vowels;
 }
 
-countVowels(stringVowels);
+console.log(countVowels("The quick brown fox"));
+
+//Write a function called highLow that takes an array of numbers, and returns an
+//object with a property highest containing the highest number, and a property 
+//lowest containing the lowest number, using Array.prototype.reduce.
+//For example, starting with [1, -10, 20, 40, 5], your function should 
+//return {highest: 40, lowest: -10}.
+
+var myArray = [1, -10, 20, 40, 5];
+
+function highLow (myArray) {
+    var biggest = myArray.reduce(function(obj, num) {
+        if (num > obj.highest) {
+            return obj.highest; 
+        }
+        else if (num < obj.lowest) {
+            return obj.lowest;
+        }
+        return obj;
+    }, {highest: -Infinity, lowest: Infinity});
+    return biggest;
+};
+
+console.log(highLow(myArray));
+
