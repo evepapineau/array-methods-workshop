@@ -159,3 +159,44 @@ function split (hello) {
 }
 
 console.log(split(hello));
+
+//Write a function called peopleById that takes an array of people and 
+//returns an object where each person is keyed by their unique ID.
+
+var person = [
+  {
+    "id": "KeXoYg92is",
+    "firstName": "John",
+    "lastName": "Smith",
+    "email": "john@smith.com"
+  },
+  {
+    "id": "NkALmSWtUp",
+    "firstName": "Donald",
+    "lastName": "Duck",
+    "email": "don@disney.com"
+  },
+  {
+    "id": "m7LPbJYSUg",
+    "firstName": "John",
+    "lastName": "Vader",
+    "email": "vader@darkside.com"
+  }
+]
+
+function peopleById (arr) {
+    return iD.reduce(function(obj, person) {
+        if (!obj[person.id]) {
+            person = person.[id];
+            return person;
+        }
+        
+            
+            
+            
+            
+            
+        }
+    }, {})
+    
+}
