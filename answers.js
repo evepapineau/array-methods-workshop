@@ -25,8 +25,8 @@ console.log(positiveFilter);
 //Re-do exercise 1 by first filtering the input array, and then printing the numbers 
 //from the filtered array. Your code will look something like: return arr.filter(...).forEach(...).
 
-function secondB (array) {
-    array.filter(getPositive).forEach(function(num) {
+function secondB (myArray) {
+    myArray.filter(getPositive).forEach(function(num) {
         console.log(num);
     });
 }
@@ -52,15 +52,20 @@ var newPositiveArray = positiveArray.filter(filterArray);
 //and returns the longest word in the string. 
 //You should use Array.prototype.reduce to do your work.
 
-var longString = ["my name is Eve Papineau"];
-
 function longuestWord (string) {
-    longString.split(" ");
-    return longString;
-};
+    var stringSplit = string.split(" ");
+    var longuestWord = stringSplit.reduce(function(prev,next) {
+        if (prev.length > next.length) {
+            return prev;
+        }
+        else {
+            return next;
+        }
+    }, "");
+   return longuestWord;
+}
 
-var longuestWord2 = longString.reduce(longuestWord);
-//console.log(longuestWord2);
+longuestWord("Hi my name is Eve Papineau");
 
 //Write a function called countVowels that takes a string and returns the number 
 //of vowels in the string. You should use Array.prototype.reduce to do your work.
@@ -185,18 +190,15 @@ var person = [
 ]
 
 function peopleById (arr) {
-    return iD.reduce(function(obj, person) {
-        if (!obj[person.id]) {
-            person = person.[id];
-            return person;
+    return arr.reduce(function(obj, person) {
+        if (!person.id) {
+            var person = person.id;
+            console.log(person);
         }
-        
-            
-            
-            
-            
-            
+        else {
+            console.log(person.id);
         }
     }, {})
-    
-}
+};
+
+peopleById(person);
